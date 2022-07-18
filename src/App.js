@@ -18,7 +18,11 @@ export default function App() {
 
   const _update = () => {
     const url = `https://example1-g-crud-default-rtdb.firebaseio.com/users/{-N7TT_k_BbSLdhfwszx6 ?},json`;
-  };
+  }; 
+  const _edit = ()=>{  }
+  const _delete = ()=>{
+    
+  }
   return (
     <div>
       <div>
@@ -80,8 +84,8 @@ export default function App() {
                <td>item.email</td>
                <td>item.gender</td>
                <td>
-                 <button>edit</button>
-                 <button>delete</button>
+                 <button onClick={_edit}>edit</button>
+                 <button onClick={_delete}>delete</button>
                </td>
            </tbody>
          </table>
