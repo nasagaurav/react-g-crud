@@ -1,8 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 import axios from 'axios';
 
 export default function App() {
-  const [a,seta] = [()];
+  const _nasa=ob=>{
+    let keys=object.keys(ob)
+    let values= object.value(ob)
+    let Temp=[]
+    for(let index in keys)
+    {
+      Temp.push({
+        id:keys[index],
+        ...values,[index],
+
+      });
+
+    }
+    return temp;
+  }  
+  const [a,seta] = [( )];
   const [ob1, setob1] = useState({ name: '', email: '', gender: '' });
   const [ob2, setob2] = useState({ id: '', name: '', email: '', gender: '' });
   const handleChange1 = (e) => {
@@ -21,8 +36,23 @@ export default function App() {
   }; 
   const _edit = ()=>{  }
   const _delete = ()=>{
-    
+
   }
+     const loadUsers = ()=>{
+      const url =
+      'https://example1-g-crud-default-rtdb.firebaseio.com/users.json';
+
+      axios.get(url)
+      .then(res=>res.data)
+      .then(d=>_nasa( d))
+      .then(d=>console.log( d))
+      .catch(e=>console.log('err',e))
+      .finally(()=>console.log('process completed: completed'))
+
+
+
+     }
+    useEffect(loadUsers,[])
   return (
     <div>
       <div>
