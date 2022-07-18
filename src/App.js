@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 export default function App() {
+  const [a,seta] = [()];
   const [ob1, setob1] = useState({ name: '', email: '', gender: '' });
   const [ob2, setob2] = useState({ id: '', name: '', email: '', gender: '' });
   const handleChange1 = (e) => {
@@ -11,12 +12,12 @@ export default function App() {
     console.log('ob2', e.target.placeholder, e.target.value);
   };
   const _insert = () => {
-    const url = `https://example1-g-crud-default-rtdb.firebaseio.com/users/{-N7TT_k_BbSLdhfwszx6 ?},json`;
+    const url =
+      'https://example1-g-crud-default-rtdb.firebaseio.com/users.json';
   };
 
   const _update = () => {
-    const url =
-      'https://example1-g-crud-default-rtdb.firebaseio.com/users.json';
+    const url = `https://example1-g-crud-default-rtdb.firebaseio.com/users/{-N7TT_k_BbSLdhfwszx6 ?},json`;
   };
   return (
     <div>
@@ -57,9 +58,33 @@ export default function App() {
           onChange={handleChange2}
         />
         <button onClick={_update}>update</button>
-      </div>
+        
       <h3>all users</h3>
-      table
+      </div>
+      <h1>all users {a.length}</h1> 
+         <table>
+           <thead>
+             <tr>
+               <th>id</th>
+               <th>name</th>
+               <th>email</th>
+               <th>gender</th>
+               <th>actions</th>
+             </tr>
+           </thead>
+
+           <tbody>
+             <tr>
+               <td>item.id</td>
+               <td>item.name</td>
+               <td>item.email</td>
+               <td>item.gender</td>
+               <td>
+                 <button>edit</button>
+                 <button>delete</button>
+               </td>
+           </tbody>
+         </table>
     </div>
   );
 }
